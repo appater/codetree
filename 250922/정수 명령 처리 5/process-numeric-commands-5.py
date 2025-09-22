@@ -2,6 +2,7 @@ N = int(input())
 
 command = []
 num = []
+count = 0
 
 for _ in range(N):
     line = input().split()
