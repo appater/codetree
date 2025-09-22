@@ -2,29 +2,31 @@ N = int(input())
 
 command = []
 num = []
-count = 0
 
 for _ in range(N):
     line = input().split()
     command.append(line[0])
-    if line[0] == "push_back" :
+    if line[0] == "push_back" or line[0] == "get":
         num.append(int(line[1]))
     else:
         num.append(0)
 
 # Please write your code here.
-    if line[0] == 'get' :
-        print(num[int(line[1])-1])
-    
-    if line[0] == 'size' :
-        for i in range(len(num)) :
-            if num[i] != 0 :
-                count += 1
-        print(count)
+dynamic_array = []
 
-    if line[0] == 'pop_back' :
-        for j in range(len(num)-1, 0, -1):
-            if num[j] != 0 :
-                num.pop(j)
+for i in range(N) :
+    current_command = command[i]
+
+    if current_command == "push_back" :
+        dynamic_array.append(num[i])
+
+    elif current_command == "pop_back" :
+        if dynamic_array :
+            dynamic_array.pop()
     
-    count = 0
+    elif current_command == "size" :
+        print(len(dynamic_array))
+
+    elif current_command == "get" :
+        k = num[i]
+        print(dynamic_array[k-1])
