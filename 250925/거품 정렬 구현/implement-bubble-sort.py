@@ -3,7 +3,7 @@ arr = list(map(int, input().split()))
 
 # Please write your code here.
 count = 0
-while count < 7:
+while count < n:
     for i in range(0, len(arr)-1) :
         if arr[i] > arr[i+1] :
             tmp = arr[i]
